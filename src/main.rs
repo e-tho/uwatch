@@ -19,8 +19,8 @@ struct Args {
     #[arg(long, default_value_t = true, help = "Enable streaming mode")]
     streaming: bool,
 
-    #[arg(long, help = "Enable polling mode")]
-    polling: bool,
+    #[arg(long, help = "Enable oneshot mode")]
+    oneshot: bool,
 }
 
 const VALID_UNIT_TYPES: [&str; 3] = [
@@ -50,7 +50,7 @@ async fn main() -> Result<()> {
     let mut last_output = map_status_output(&active_state, &args);
     print_output(last_output, args.streaming);
 
-    if args.polling {
+    if args.oneshot {
         return Ok(());
     }
 
