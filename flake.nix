@@ -20,6 +20,17 @@
           src = ./.;
           cargoLock = ./Cargo.lock;
           release = true;
+          meta = {
+            description = "A systemd unit watcher.";
+            homepage = "https://github.com/e-tho/uwatch";
+            license = pkgs.lib.licenses.gpl3;
+            maintainers = [
+              {
+                github = "e-tho";
+              }
+            ];
+            mainProgram = "uwatch";
+          };
         };
 
         devShell = pkgs.mkShell {
